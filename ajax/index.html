@@ -1,0 +1,43 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#but1").click(function () {
+                $.ajax({
+                    url: "GetQuery.php",
+                    type: "POST",
+                    data: "functionName=GetQuery1",
+                    cache: true,
+                    success: function (result) {
+                        $("#par1").html(result)
+                    }
+
+                });
+            });
+            $("#but2").click(function () {
+                $.ajax({
+                    url: "GetQuery.php",
+                    type: "POST",
+                    data: "functionName=GetQuery2",
+                    cache: true,
+                    success: function (result) {
+                        $("#par1").html(result)
+                    }
+
+                });
+            });
+
+        });
+    </script>
+
+</head>
+<body>
+<p id="par1">После нажатия будет отображен результат запроса 1.</p>
+<p id="par2">После нажатия будет отображен результат запроса 2.</p>
+<input id="but1" type="button" value="Отправить запрос 1."/>
+<input id="but2" type="button" value="Отправить запрос 2."/>
+</body>
+</html>
